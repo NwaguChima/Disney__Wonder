@@ -1,9 +1,14 @@
-import { Container, Content } from "./Login.styles";
+import { Container, Content, BgImage, CTA, CTALogoOne } from "./Login.styles";
 
 const Login = () => {
   return (
     <Container>
-      <Content>Content</Content>
+      <Content>
+        <CTA>
+          <CTALogoOne src="/images/cta-logo-one.svg" alt="" />
+        </CTA>
+        <BgImage />
+      </Content>
     </Container>
   );
 };

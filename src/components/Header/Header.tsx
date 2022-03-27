@@ -1,7 +1,21 @@
 import React from "react";
+import { auth } from "../../firebase/firebase";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getFirestore, collection, getDoc } from "firebase/firestore/lite";
 import { Nav, Logo, NavMenu, Login } from "./Header.styles";
 
 const Header = () => {
+  const provider = new GoogleAuthProvider();
+  const handleAuth = () => {
+    signInWithPopup(auth, provider)
+      .then((result: any) => {
+        console.log(result);
+      })
+      .catch((error: any) => {
+        alert(error.message);
+      });
+  };
+
   return (
     <Nav>
       <Logo href="#">
@@ -33,7 +47,7 @@ const Header = () => {
           <span>SERIES</span>
         </a>
       </NavMenu>
-      <Login>Login</Login>
+      <Login onClick={handleAuth}>Login</Login>
     </Nav>
   );
 };

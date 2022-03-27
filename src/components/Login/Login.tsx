@@ -1,7 +1,11 @@
-import styled from "styled-components";
+import { Container, Content } from "./Login.styles";
 
 const Login = () => {
-  return <div>Login</div>;
+  return (
+    <Container>
+      <Content>Content</Content>
+    </Container>
+  );
 };
 
 export default Login;

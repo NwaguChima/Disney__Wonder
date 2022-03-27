@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;1,400;1,500;1,600&family=Roboto:ital,wght@0,100;0,400;0,700;1,100&family=Rubik:wght@400;500;600;700&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #040714;
+  color: #f9f9f9;
+
+  font-family: "Playfair Display", serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #f9f9f9;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+    background-color: blue;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  body {
+    font-size: 14px;
+    background-color: red;
+  }
+}

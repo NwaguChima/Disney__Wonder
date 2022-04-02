@@ -1,6 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Carousel } from "./ImgSlider.styles";
+import { Carousel, Wrap } from "./ImgSlider.styles";
 
 const ImgSlider = (props: any) => {
   const settings = {
@@ -14,15 +14,29 @@ const ImgSlider = (props: any) => {
 
   return (
     <Carousel {...settings}>
-      <div>
-        <h3>1</h3>
-      </div>
-      <div>
-        <h3>2</h3>
-      </div>
-      <div>
-        <h3>3</h3>
-      </div>
+      <Wrap>
+        <a href="/home">
+          <img src="/images/slider-badging.jpg" alt="slider " />
+        </a>
+      </Wrap>
+
+      <Wrap>
+        <a href="/home">
+          <img src="/images/slider-scale.jpg" alt="slider " />
+        </a>
+      </Wrap>
+
+      <Wrap>
+        <a href="/home">
+          <img src="/images/slider-badag.jpg" alt="slider " />
+        </a>
+      </Wrap>
+
+      <Wrap>
+        <a href="/home">
+          <img src="/images/slider-scales.jpg" alt="slider " />
+        </a>
+      </Wrap>
     </Carousel>
   );
 };

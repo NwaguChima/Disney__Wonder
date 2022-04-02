@@ -1,7 +1,30 @@
-import React from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Carousel } from "./ImgSlider.styles";
 
-const ImgSlider = (props) => {
-  return <div>Image Slider</div>;
+const ImgSlider = (props: any) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+  };
+
+  return (
+    <Carousel {...settings}>
+      <div>
+        <h3>1</h3>
+      </div>
+      <div>
+        <h3>2</h3>
+      </div>
+      <div>
+        <h3>3</h3>
+      </div>
+    </Carousel>
+  );
 };
 
 export default ImgSlider;

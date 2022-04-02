@@ -1,4 +1,15 @@
-import React from "react";
+import {
+  DocumentData,
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+  DocumentReference,
+} from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import db from "../../firebase/firebase";
+import { IMovie } from "../../utils/movieInt";
 import {
   Background,
   Container,
@@ -8,16 +19,48 @@ import {
   Player,
   Trailer,
   AddList,
+  GroupWatch,
+  SubTitle,
+  Description,
 } from "./Detail.styles";
 
 const Detail = () => {
+  const params: { id: string } = useParams();
+  const [detailData, setDetialData] = useState<IMovie | any>({});
+  console.log("id", params.id);
+
+  const getMovie = async () => {
+    try {
+      const docRef: DocumentReference<DocumentData> = doc(
+        db,
+        "movies",
+        params.id
+      );
+
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setDetialData(docSnap.data());
+      } else {
+        console.log("No such document! in firebase 🔥");
+      }
+    } catch (error: any) {
+      console.log("Error getting document:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    getMovie();
+  }, [params.id]);
+
+  console.log(detailData);
   return (
     <Container>
       <Background>
-        <img src="" alt="" />
+        <img src={detailData.backgroundImg} alt={detailData.title} />
       </Background>
       <ImageTitle>
-        <img src="" alt="" />
+        <img src={detailData.titleImg} alt={detailData.title} />
       </ImageTitle>
       <ContentMeta>
         <Controls>
@@ -33,7 +76,14 @@ const Detail = () => {
             <span />
             <span />
           </AddList>
+          <GroupWatch>
+            <div>
+              <img src="/images/group-icon.png" alt="" />
+            </div>
+          </GroupWatch>
         </Controls>
+        <SubTitle>{detailData.subTitle}</SubTitle>
+        <Description>{detailData.description}</Description>
       </ContentMeta>
     </Container>
   );

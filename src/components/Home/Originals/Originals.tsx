@@ -1,17 +1,26 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Container, Content, Wrap } from "../NewDisney/NewDisney.styles";
+import { Container, Content, Wrap } from "../Recommended/Recommended.styles";
+import { selectOriginal } from "../../../features/movie/movieSlice";
+import { IMovie } from "../../../utils/movieInt";
 
 const Originals = () => {
+  const movies = useSelector(selectOriginal);
+
   return (
     <Container>
       <h4>Originals</h4>
       <Content>
-        <Wrap>
-          <Link to="/">
-            <img src="images/" alt="cards" />
-          </Link>
-        </Wrap>
+        {movies &&
+          movies.map((movie: IMovie, key: number) => (
+            <Wrap key={movie.id}>
+              {movie.id}
+              <Link to={"/detail/" + movie.id}>
+                <img src={movie.cardImg} alt={movie.title} />
+              </Link>
+            </Wrap>
+          ))}
       </Content>
     </Container>
   );

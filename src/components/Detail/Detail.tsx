@@ -48,6 +48,8 @@ const Detail = () => {
 
   useEffect(() => {
     getMovie();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.id]);
 
   console.log(detailData);

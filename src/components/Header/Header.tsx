@@ -32,6 +32,8 @@ const Header = () => {
         history.push("/home");
       }
     });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userName]);
 
   const provider = new GoogleAuthProvider();

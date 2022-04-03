@@ -53,6 +53,8 @@ const Home = () => {
         // TODO: Handle errors
         console.error("Failed to retrieve data", err);
       });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userName]);
 
   return (

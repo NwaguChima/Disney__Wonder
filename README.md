@@ -44,3 +44,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## About Project.
+
+This is a disney wonder web application built with React/Redux, Typescript, FireBase, and Styled Components.
+React routing was used to route between the login page, the signup, and the detail page. Styled components was used throughtout for styling to ensure nested styling and avoid conflict, also to ensure reusability of Wrapper elements created. Firebase google authentication served for login and collecting user data. The movie data was also fetched from firebase storage. Redux was used to manage the state of user and movie data fetched. The userSlice and movieSlice were used to communicate with redux store. A beautiful Carousel was added to the home page using carousel slider. Lastly, the signout functionality was also implemented.

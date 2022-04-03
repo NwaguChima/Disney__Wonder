@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Content, Wrap } from "./Recommended.styles";
 import { useSelector } from "react-redux";
@@ -13,7 +12,7 @@ const Recommended = () => {
       <h4>Recommended for You</h4>
       <Content>
         {movies &&
-          movies.map((movie: IMovie, key: number) => (
+          movies.map((movie: IMovie) => (
             <Wrap key={movie.id}>
               {movie.id}
               <Link to={"/detail/" + movie.id}>

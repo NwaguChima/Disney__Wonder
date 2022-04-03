@@ -1,7 +1,6 @@
-import React from "react";
 import { Container, Wrap } from "./Viewers.styles";
 
-const Viewers = (props: any) => {
+const Viewers = () => {
   return (
     <Container>
       <Wrap>

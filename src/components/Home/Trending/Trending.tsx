@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Content, Wrap } from "../Recommended/Recommended.styles";
 import { selectTrending } from "../../../features/movie/movieSlice";

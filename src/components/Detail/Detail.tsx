@@ -1,12 +1,10 @@
 import {
   DocumentData,
-  collection,
-  getDocs,
   doc,
   getDoc,
   DocumentReference,
 } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import db from "../../firebase/firebase";
 import { IMovie } from "../../utils/movieInt";
@@ -27,7 +25,6 @@ import {
 const Detail = () => {
   const params: { id: string } = useParams();
   const [detailData, setDetialData] = useState<IMovie | any>({});
-  console.log("id", params.id);
 
   const getMovie = async () => {
     try {

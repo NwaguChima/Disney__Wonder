@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Container } from "./Home.styles";
 import ImgSlider from "./ImgSlider/ImgSlider";
 import NewDisney from "./NewDisney/NewDisney";
@@ -11,6 +11,7 @@ import db from "../../firebase/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { setMovies } from "../../features/movie/movieSlice";
 import { selectUserName } from "../../features/user/userSlice";
+import { IMovie } from "../../utils/movieInt";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,25 +20,25 @@ const Home = () => {
   useEffect(() => {
     getDocs(collection(db, "movies"))
       .then((querySnapshot) => {
-        const result = querySnapshot.docs.map((doc) => ({
+        const result: [IMovie] = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
-        }));
+        })) as [IMovie];
 
         let holdReco =
           result.length > 0 &&
-          result.filter((el: any) => el.type === "recommend");
+          result.filter((el: IMovie) => el.type === "recommend");
 
         let holdNew =
           result.length > 0 && result.filter((el: any) => el.type === "new");
 
         let holdTrend =
           result.length > 0 &&
-          result.filter((el: any) => el.type === "trending");
+          result.filter((el: IMovie) => el.type === "trending");
 
         let holdOriginal =
           result.length > 0 &&
-          result.filter((el: any) => el.type === "original");
+          result.filter((el: IMovie) => el.type === "original");
 
         dispatch(
           setMovies({
@@ -54,7 +55,6 @@ const Home = () => {
       });
   }, [userName]);
 
-  //   console.log("heloo", reco);
   return (
     <Container>
       <ImgSlider />

@@ -61,6 +61,10 @@ export const NavMenu = styled.div`
       white-space: nowrap;
       position: relative;
 
+      @media (max-width: 868px) {
+        font-size: 10px;
+      }
+
       &::before {
         /* display: block; */
         background-color: rgb(249, 249, 249);
@@ -90,7 +94,7 @@ export const NavMenu = styled.div`
   }
 
   @media (max-width: 768px) {
-    /* display: none; */
+    display: none;
   }
 `;
 

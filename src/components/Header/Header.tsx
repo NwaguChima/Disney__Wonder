@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { auth } from "../../firebase/firebase";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore, collection, getDoc } from "firebase/firestore/lite";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
-  selectUserEmail,
   selectUserName,
   selectUserPhoto,
   setSignOutState,
@@ -40,10 +38,10 @@ const Header = () => {
   const handleAuth = () => {
     if (!userName) {
       signInWithPopup(auth, provider)
-        .then((result: any) => {
+        .then((result) => {
           setUser(result.user);
         })
-        .catch((error: any) => {
+        .catch((error) => {
           alert(error.message);
         });
     } else if (userName) {
@@ -111,7 +109,6 @@ const Header = () => {
           </SignOut>
         </>
       )}
-      {/* <Login onClick={handleAuth}>Login</Login> */}
     </Nav>
   );
 };

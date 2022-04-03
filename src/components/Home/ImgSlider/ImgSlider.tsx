@@ -2,7 +2,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Carousel, Wrap } from "./ImgSlider.styles";
 
-const ImgSlider = (props: any) => {
+const ImgSlider = () => {
   const settings = {
     dots: true,
     infinite: true,
